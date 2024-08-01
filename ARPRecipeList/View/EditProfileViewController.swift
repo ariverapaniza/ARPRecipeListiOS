@@ -116,10 +116,6 @@ class EditProfileViewController: UIViewController, PHPickerViewControllerDelegat
         updateUser()
     }
 
-    @IBAction func cancelTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-
     private func updateUser() {
         isLoading = true
         loadingView.isHidden = false
@@ -145,7 +141,7 @@ class EditProfileViewController: UIViewController, PHPickerViewControllerDelegat
                     self.isLoading = false
                     self.loadingView.isHidden = true
                     self.delegate?.profileDidUpdate()
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
             } catch {
                 setError(error)

@@ -1,8 +1,8 @@
 //
-//  ProfileViewController.swift
-//  ARPRecipeList
+// ProfileViewController.swift
+// ARPRecipeList
 //
-//  Created by Arturo Rivera Paniza on 2/7/2024.
+// Created by Arturo Rivera Paniza on 2/7/2024.
 //
 
 import UIKit
@@ -52,17 +52,6 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
             print("User UID: \(userUID)")
         } else {
             print("No user is currently logged in.")
-        }
-    }
-
-    @objc private func editProfile() {
-        guard let myProfile = myProfile else { return }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let editProfileVC = storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController {
-            editProfileVC.user = myProfile
-            editProfileVC.delegate = self
-            editProfileVC.modalPresentationStyle = .fullScreen
-            present(editProfileVC, animated: true, completion: nil)
         }
     }
 
@@ -121,7 +110,6 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
         }
     }
 
-
     private func setupProfileContent() {
         guard let myProfile = myProfile else { return }
         print("Function setupProfileContent called")
@@ -157,9 +145,9 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
     @IBAction func logOutTapped(_ sender: UIButton) {
         logOutUser()
     }
-
+    
     @IBAction func editProfileTapped(_ sender: UIButton) {
-        editProfile()
+        performSegue(withIdentifier: "editProfileSegue", sender: self)
     }
 
     func setError(_ error: Error) {
@@ -170,5 +158,14 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
 
     func profileDidUpdate() {
         fetchUserData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editProfileSegue" {
+            guard let editProfileVC = segue.destination as? EditProfileViewController else { return }
+            editProfileVC.user = myProfile
+            editProfileVC.delegate = self
+            editProfileVC.modalPresentationStyle = .fullScreen
+        }
     }
 }
