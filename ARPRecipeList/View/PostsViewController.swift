@@ -122,7 +122,7 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
             guard let individualPostVC = storyboard.instantiateViewController(withIdentifier: "IndividualPostViewController") as? IndividualPostViewController else {
                 print("Could not instantiate IndividualPostViewController")
                 return
-            }
+            } // Comment
             individualPostVC.post = post
             navigationController?.pushViewController(individualPostVC, animated: true)
         } else {
