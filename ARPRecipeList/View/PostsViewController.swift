@@ -129,6 +129,7 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
             guard let soloPostVC = storyboard.instantiateViewController(withIdentifier: "SoloPostViewController") as? SoloPostViewController else {
                 print("Could not instantiate SoloPostViewController")
                 return
+                // Comment
             }
             soloPostVC.post = post
             navigationController?.pushViewController(soloPostVC, animated: true)
