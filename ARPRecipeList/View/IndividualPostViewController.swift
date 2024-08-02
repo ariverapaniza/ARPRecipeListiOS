@@ -84,13 +84,7 @@ class IndividualPostViewController: UIViewController {
     }
 
     @IBAction func editPostTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let editPostVC = storyboard.instantiateViewController(withIdentifier: "EditPostViewController") as? EditPostViewController else {
-            print("Could not instantiate EditPostViewController")
-            return
-        }
-        editPostVC.post = post
-        navigationController?.pushViewController(editPostVC, animated: true)
+        performSegue(withIdentifier: "editPostSegue", sender: self)
     }
     
     @IBAction func deletePostTapped(_ sender: UIButton) {
@@ -153,5 +147,11 @@ class IndividualPostViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editPostSegue" {
+            guard let editPostVC = segue.destination as? EditPostViewController else { return }
+            editPostVC.post = post
+        }
+    }
 }
-

@@ -1,8 +1,8 @@
 //
-// ProfileViewController.swift
-// ARPRecipeList
+//  ProfileViewController.swift
+//  ARPRecipeList
 //
-// Created by Arturo Rivera Paniza on 2/7/2024.
+//  Created by Arturo Rivera Paniza on 2/7/2024.
 //
 
 import UIKit
@@ -149,6 +149,10 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
     @IBAction func editProfileTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "editProfileSegue", sender: self)
     }
+    
+    @IBAction func favouritesTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "showFavouritesSegue", sender: self)
+    }
 
     func setError(_ error: Error) {
         isLoading = false
@@ -166,6 +170,8 @@ class ProfileViewController: UIViewController, EditProfileViewControllerDelegate
             editProfileVC.user = myProfile
             editProfileVC.delegate = self
             editProfileVC.modalPresentationStyle = .fullScreen
+        } else if segue.identifier == "showFavouritesSegue" {
+            guard let favouritesVC = segue.destination as? FavouritesPostsViewController else { return }
         }
     }
 }

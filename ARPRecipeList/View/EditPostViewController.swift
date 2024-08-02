@@ -18,12 +18,21 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
     
+    var errorMessage: String = ""
+    var showError: Bool = false
+    var isLoading: Bool = false
+    var favourite: Bool = false
+    
     var post: Post!
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        guard let post = post else {
+            print("Error: Post is nil")
+            return
+        }
         configureView(with: post)
         setupImageViewTap()
     }
@@ -36,21 +45,27 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     private func configureView(with post: Post) {
-        titleTextField.text = post.title
-        postTextView.text = post.text
-        
-        if let imageURL = post.imageURL {
-            print("Post Image URL: \(imageURL)")
-            loadImage(from: imageURL) { [weak self] image in
-                if let image = image {
-                    self?.postImageView.image = image
-                } else {
-                    print("Failed to load post image from URL: \(imageURL)")
-                    self?.postImageView.image = UIImage(named: "noImage")
+        do {
+            titleTextField.text = post.title
+            postTextView.text = post.text
+            favourite = post.favourite
+            
+            if let imageURL = post.imageURL {
+                print("Post Image URL: \(imageURL)")
+                loadImage(from: imageURL) { [weak self] image in
+                    if let image = image {
+                        self?.postImageView.image = image
+                    } else {
+                        print("Failed to load post image from URL: \(imageURL)")
+                        self?.postImageView.image = UIImage(named: "noImage")
+                    }
                 }
+            } else {
+                postImageView.image = UIImage(named: "noImage")
             }
-        } else {
-            postImageView.image = UIImage(named: "noImage")
+        } catch {
+            setError(error)
+            print("Error: \(error)")
         }
     }
     
@@ -157,5 +172,10 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    func setError(_ error: Error) {
+        isLoading = false
+        errorMessage = error.localizedDescription
+        showError = true
+    }
 }
-

@@ -18,6 +18,8 @@
 		5659DD072C27CEC30014A838 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5659DD062C27CEC30014A838 /* FirebaseAuth */; };
 		5659DD152C297D9F0014A838 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659DD142C297D9F0014A838 /* LoginViewController.swift */; };
 		5659DD172C297DC00014A838 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659DD162C297DC00014A838 /* RegisterViewController.swift */; };
+		5686ADE22C5CBF6C00C318A1 /* FavouritesPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5686ADE12C5CBF6C00C318A1 /* FavouritesPostsViewController.swift */; };
+		5686ADE42C5CE61D00C318A1 /* FavouritesPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5686ADE32C5CE61D00C318A1 /* FavouritesPostTableViewCell.swift */; };
 		56A1921B2C4BA620001A9654 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1921A2C4BA620001A9654 /* PostTableViewCell.swift */; };
 		56A1921D2C4BA687001A9654 /* IndividualPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1921C2C4BA687001A9654 /* IndividualPostViewController.swift */; };
 		56A1921F2C4CFA71001A9654 /* SoloPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1921E2C4CFA71001A9654 /* SoloPostViewController.swift */; };
@@ -50,6 +52,8 @@
 		5659DD032C27CD430014A838 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5659DD142C297D9F0014A838 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5659DD162C297DC00014A838 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5686ADE12C5CBF6C00C318A1 /* FavouritesPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPostsViewController.swift; sourceTree = "<group>"; };
+		5686ADE32C5CE61D00C318A1 /* FavouritesPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPostTableViewCell.swift; sourceTree = "<group>"; };
 		56A1921A2C4BA620001A9654 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		56A1921C2C4BA687001A9654 /* IndividualPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualPostViewController.swift; sourceTree = "<group>"; };
 		56A1921E2C4CFA71001A9654 /* SoloPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloPostViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				56A1921C2C4BA687001A9654 /* IndividualPostViewController.swift */,
 				56A1921E2C4CFA71001A9654 /* SoloPostViewController.swift */,
 				564FA78C2C511DAF00F9199E /* EditPostViewController.swift */,
+				5686ADE12C5CBF6C00C318A1 /* FavouritesPostsViewController.swift */,
+				5686ADE32C5CE61D00C318A1 /* FavouritesPostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				5659DCF02C27C7FB0014A838 /* AppDelegate.swift in Sources */,
 				56A1921D2C4BA687001A9654 /* IndividualPostViewController.swift in Sources */,
 				56B85CEC2C49299A00FA91D2 /* LoadingView.swift in Sources */,
+				5686ADE22C5CBF6C00C318A1 /* FavouritesPostsViewController.swift in Sources */,
 				56B85CFA2C492B7D00FA91D2 /* ReusableProfileContent.swift in Sources */,
 				56B85CF82C492AD500FA91D2 /* ProfileViewController.swift in Sources */,
 				56B85CE62C49252900FA91D2 /* User.swift in Sources */,
@@ -253,6 +260,7 @@
 				5615E1162C4A38AC00C499DE /* TestViewController.swift in Sources */,
 				56A1921F2C4CFA71001A9654 /* SoloPostViewController.swift in Sources */,
 				5659DCF22C27C7FB0014A838 /* SceneDelegate.swift in Sources */,
+				5686ADE42C5CE61D00C318A1 /* FavouritesPostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

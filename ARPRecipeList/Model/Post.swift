@@ -2,7 +2,7 @@
 //  Post.swift
 //  ARPRecipeList
 //
-//  Created by Arturo Rivera Paniza on 01/7/2024.
+//  Created by Arturo Rivera Paniza on 1/7/2024.
 //
 
 import Foundation
